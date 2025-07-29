@@ -1,237 +1,229 @@
 # NameCraft - AI-Powered Name Generator
 
-A modern, professional web application for generating beautiful and meaningful names from various cultural traditions. Built with React, Node.js, and powered by AI.
+A modern, professional React-based name generator web application with multi-language support, interactive wizard flow, and beautiful dark theme design.
 
-## 🌟 Features
+## 🎯 Project Overview
 
-- **Multi-Language Support**: Available in 9 languages (English, Arabic, Spanish, French, Russian, German, Japanese, Chinese, Hindi)
-- **Cultural Diversity**: Names from 15+ cultural origins including Arabic, Islamic, Asian, Western, Jewish, African, and more
-- **Interactive Wizard**: Step-by-step name generation process with gender, origin, and feeling selection
-- **Professional Design**: Modern dark theme with glassmorphism effects and smooth animations
-- **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
-- **AI-Powered**: Intelligent name generation with cultural authenticity
-- **Easy Sharing**: Copy and share generated names with meanings
+**NameCraft** is a frontend-only React application that provides a sophisticated name generation experience. The backend and AI API integration will be developed separately by the backend team.
 
-## 🚀 Tech Stack
+### ✨ Features
 
-### Frontend
-- **React 18** - Modern React with hooks and functional components
-- **Tailwind CSS** - Utility-first CSS framework for rapid UI development
-- **Framer Motion** - Production-ready motion library for React
-- **Zustand** - Lightweight state management
-- **React Query** - Data fetching and caching
-- **Headless UI** - Accessible UI components
-- **Axios** - HTTP client for API requests
+- **🌍 Multi-Language Support**: 9 languages (English, Arabic, Spanish, French, Russian, German, Japanese, Chinese, Hindi)
+- **🎨 Professional Dark Theme**: Premium glassmorphism design with smooth animations
+- **🔄 Interactive Wizard Flow**: Step-by-step name generation process
+- **🎯 Cultural Diversity**: 15+ cultural origins and name styles
+- **💫 Modern UI/UX**: Responsive design with Framer Motion animations
+- **📱 Mobile-First**: Optimized for all devices and screen sizes
+- **⚡ Performance**: Optimized with React Query and Zustand
 
-### Backend
-- **Node.js** - JavaScript runtime
-- **Express.js** - Web application framework
-- **CORS** - Cross-origin resource sharing
+## 🏗️ Architecture
 
-### Development Tools
-- **Vite** - Fast build tool and dev server
-- **PostCSS** - CSS processing
-- **Autoprefixer** - CSS vendor prefixing
+### Frontend Stack
+- **React 18** with modern hooks
+- **Tailwind CSS** for styling
+- **Framer Motion** for animations
+- **Zustand** for state management
+- **React Query** for data fetching
+- **Headless UI** for accessible components
 
-## 📁 Project Structure
-
+### Project Structure
 ```
-name-generator-web/
-├── client/                 # React frontend
-│   ├── public/            # Static assets
-│   ├── src/
-│   │   ├── components/    # React components
-│   │   ├── hooks/         # Custom React hooks
-│   │   ├── store/         # Zustand state management
-│   │   └── index.css      # Global styles
-│   ├── package.json       # Frontend dependencies
-│   └── tailwind.config.js # Tailwind configuration
-├── server/                # Node.js backend (future)
-├── package.json           # Root dependencies
-└── README.md             # Project documentation
+client/
+├── src/
+│   ├── components/          # UI Components
+│   │   ├── LandingPage.js   # Welcome screen with language selection
+│   │   ├── GenderSelection.js # Gender selection wizard step
+│   │   ├── RegionSelection.js # Cultural origin selection
+│   │   ├── FeelingSelection.js # Name feeling/emotion selection
+│   │   ├── NameForm.js      # Summary and generation form
+│   │   ├── NameDisplay.js   # Results display with loading states
+│   │   ├── NameCard.js      # Individual name card component
+│   │   └── ui/              # Reusable UI components
+│   ├── store/
+│   │   └── useNameStore.js  # Zustand state management
+│   ├── hooks/
+│   │   └── useNameGenerator.js # Data fetching hooks
+│   └── data/
+│       └── mockNames.js     # Mock data for development
 ```
-
-## 🎨 Design Features
-
-- **Dark Theme**: Premium dark color scheme with purple and blue accents
-- **Glassmorphism**: Modern glass-like UI elements with backdrop blur
-- **Smooth Animations**: Framer Motion powered animations and transitions
-- **Responsive Typography**: Adaptive text sizing for all screen sizes
-- **Professional UI**: Clean, modern interface with excellent UX
-
-## 🌍 Supported Languages
-
-1. **English** - Default language
-2. **Arabic** - العربية
-3. **Spanish** - Español
-4. **French** - Français
-5. **Russian** - Русский
-6. **German** - Deutsch
-7. **Japanese** - 日本語
-8. **Chinese** - 中文
-9. **Hindi** - हिन्दी
-
-## 🎯 Cultural Origins
-
-- Arabic & Islamic
-- Asian & Hindu
-- Western & European
-- Jewish & Hebrew
-- African & Tribal
-- Global & International
-- Latin & Mediterranean
-- North American
-- European Union
-- Slavic & Eastern European
-- Scandinavian & Nordic
-- Oceanic & Pacific
-- Korean & East Asian
-- Japanese & Zen
-
-## 🎭 Name Feelings
-
-- Unique & Distinctive
-- Strong & Powerful
-- Beautiful & Elegant
-- Wise & Intelligent
-- Peaceful & Serene
-- Brave & Courageous
-- Gentle & Tender
-- Mysterious & Enigmatic
-- Joyful & Happy
-- Noble & Royal
-- Creative & Artistic
-- Adventurous & Explorer
-- Loving & Caring
-- Spiritual & Sacred
-- Modern & Contemporary
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-
 - Node.js 16+ 
 - npm or yarn
 
 ### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/name-generator-web.git
-   cd name-generator-web
-   ```
-
-2. **Install dependencies**
-   ```bash
-   # Install root dependencies
-   npm install
-   
-   # Install frontend dependencies
-   cd client
-   npm install
-   ```
-
-3. **Start the development server**
-   ```bash
-   # From the client directory
-   npm run dev
-   ```
-
-4. **Open your browser**
-   Navigate to `http://localhost:3000`
-
-### Building for Production
-
 ```bash
-# Build the frontend
+# Navigate to client directory
 cd client
-npm run build
 
-# The built files will be in client/dist/
+# Install dependencies
+npm install
+
+# Start development server
+npm start
 ```
 
-## 🔧 Configuration
+The application will run on `http://localhost:3000`
 
-### Environment Variables
+## 🔌 Backend Integration
 
-Create a `.env` file in the client directory:
+### Expected API Endpoints
 
-```env
-VITE_API_URL=http://localhost:3001
-VITE_APP_NAME=NameCraft
-```
+The frontend expects the following backend API endpoints:
 
-### Tailwind Configuration
+#### 1. Generate Names
+```http
+POST /api/generate-names
+Content-Type: application/json
 
-The project uses a custom Tailwind configuration with:
-- Custom color palette
-- Custom animations and keyframes
-- Responsive design utilities
-- Performance optimizations
-
-## 🎨 Customization
-
-### Colors
-The color scheme can be customized in `client/tailwind.config.js`:
-
-```javascript
-colors: {
-  primary: {
-    900: '#0a0f1a',
-    800: '#1a1f2e',
-    // ... more shades
-  },
-  accent: {
-    purple: '#8b5cf6',
-    pink: '#ec4899',
-    // ... more colors
-  }
+{
+  "gender": "male|female|unisex",
+  "culture": "arabic|islamic|asian|western|jewish|african|global|latin|north-american|european|slavic|scandinavian|oceanic|korean|japanese",
+  "count": 1-10,
+  "feeling": "unique|strong|beautiful|wise|peaceful|brave|gentle|mysterious|joyful|noble|creative|adventurous|loving|spiritual|modern"
 }
 ```
 
-### Animations
-Custom animations are defined in the Tailwind config and can be extended as needed.
+**Response:**
+```json
+{
+  "success": true,
+  "names": [
+    {
+      "name": "Ahmad",
+      "meaning": "Most commendable, most praiseworthy",
+      "origin": "Arabic",
+      "feeling": "noble"
+    }
+  ]
+}
+```
+
+#### 2. Get Available Options
+```http
+GET /api/cultures
+GET /api/genders
+GET /api/feelings
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "data": ["arabic", "islamic", "asian", "western", ...]
+}
+```
+
+### API Configuration
+
+The frontend is configured to connect to:
+- **Development**: `http://localhost:3001/api`
+- **Production**: Environment variable `REACT_APP_API_URL`
+
+### Mock Data
+
+Currently, the application uses mock data from `client/src/data/mockNames.js` for development and demonstration purposes. Replace this with actual API calls when the backend is ready.
+
+## 🎨 Design System
+
+### Color Palette
+- **Primary**: Purple gradient (`#7c6ef2` to `#8b5cf6`)
+- **Accent**: Purple, Pink, Emerald, Orange
+- **Background**: Dark theme (`#0a0f1a` to `#1a1f2e`)
+
+### Typography
+- **Font**: System UI stack
+- **Responsive**: Dynamic font sizing with `clamp()`
+- **Multi-language**: Optimized for RTL and LTR languages
+
+### Components
+- **Glassmorphism**: Backdrop blur effects
+- **Animations**: Smooth transitions with Framer Motion
+- **Accessibility**: ARIA labels and keyboard navigation
+
+## 🌍 Internationalization
+
+The application supports 9 languages with complete translations:
+- English (en)
+- Arabic (ar) - RTL support
+- Spanish (es)
+- French (fr)
+- Russian (ru)
+- German (de)
+- Japanese (ja)
+- Chinese (zh)
+- Hindi (hi)
+
+All UI text, error messages, and dynamic content are translated.
 
 ## 📱 Responsive Design
 
-The application is fully responsive with breakpoints:
-- **Mobile**: < 640px
-- **Tablet**: 640px - 1024px
-- **Desktop**: > 1024px
+- **Mobile**: 320px - 768px
+- **Tablet**: 768px - 1024px
+- **Desktop**: 1024px+
 
-## 🔒 Privacy & Security
+Optimized for touch interactions and various screen sizes.
 
-- No personal data is collected
-- All name generation happens locally or through secure API calls
-- No tracking or analytics without consent
+## 🔧 Development
 
-## 🤝 Contributing
+### Available Scripts
+```bash
+npm start          # Start development server
+npm run build      # Build for production
+npm test           # Run tests
+npm run eject      # Eject from Create React App
+```
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+### State Management
+- **Zustand**: Global state for user preferences and wizard flow
+- **React Query**: Server state management and caching
+- **Local Storage**: Persistence for user settings
+
+### Code Style
+- **ESLint**: Code linting
+- **Prettier**: Code formatting
+- **Tailwind**: Utility-first CSS
+
+## 🚀 Deployment
+
+### Build for Production
+```bash
+cd client
+npm run build
+```
+
+### Environment Variables
+```bash
+REACT_APP_API_URL=http://localhost:3001/api
+```
+
+## 🤝 Backend Development Guidelines
+
+### For the Backend Team
+
+1. **API Design**: Follow the expected endpoints above
+2. **CORS**: Enable CORS for `http://localhost:3000`
+3. **Error Handling**: Return consistent error responses
+4. **Validation**: Validate all input parameters
+5. **Documentation**: Document your API endpoints
+
+### Integration Steps
+1. Set up your backend server on port 3001
+2. Implement the required API endpoints
+3. Test with the frontend application
+4. Replace mock data with real API calls
+5. Deploy both frontend and backend
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## 🤝 Contributing
 
-- **React Team** - For the amazing framework
-- **Tailwind CSS** - For the utility-first CSS framework
-- **Framer Motion** - For the smooth animations
-- **Heroicons** - For the beautiful icons
-- **All Contributors** - For making this project better
-
-## 📞 Support
-
-If you have any questions or need support, please:
-- Open an issue on GitHub
-- Contact the development team
-- Check the documentation
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
 ---
 
-**Made with ❤️ by the NameCraft Team** 
+**Note**: This is a frontend-only repository. The backend and AI API integration will be developed separately and integrated via the specified API endpoints. 

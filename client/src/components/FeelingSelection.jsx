@@ -14,8 +14,8 @@ const FeelingSelection = () => {
       gradient: 'from-purple-500/10 to-violet-500/10',
       bgGlow: 'group-hover:shadow-purple-500/20',
       accent: 'text-purple-400',
-      description: 'One-of-a-kind names',
-      pattern: 'Distinctive • Memorable • Special',
+      descriptionKey: 'uniqueDesc',
+      patternKey: 'uniquePattern',
       patternColor: 'text-purple-400'
     },
     {
@@ -25,8 +25,8 @@ const FeelingSelection = () => {
       gradient: 'from-red-500/10 to-orange-500/10',
       bgGlow: 'group-hover:shadow-red-500/20',
       accent: 'text-red-400',
-      description: 'Powerful & bold names',
-      pattern: 'Mighty • Courageous • Resilient',
+      descriptionKey: 'strongDesc',
+      patternKey: 'strongPattern',
       patternColor: 'text-red-400'
     },
     {
@@ -36,8 +36,8 @@ const FeelingSelection = () => {
       gradient: 'from-pink-500/10 to-rose-500/10',
       bgGlow: 'group-hover:shadow-pink-500/20',
       accent: 'text-pink-400',
-      description: 'Elegant & graceful names',
-      pattern: 'Graceful • Lovely • Charming',
+      descriptionKey: 'beautifulDesc',
+      patternKey: 'beautifulPattern',
       patternColor: 'text-pink-400'
     },
     {
@@ -47,8 +47,8 @@ const FeelingSelection = () => {
       gradient: 'from-blue-500/10 to-indigo-500/10',
       bgGlow: 'group-hover:shadow-blue-500/20',
       accent: 'text-blue-400',
-      description: 'Intelligent & thoughtful names',
-      pattern: 'Intelligent • Insightful • Wise',
+      descriptionKey: 'wiseDesc',
+      patternKey: 'wisePattern',
       patternColor: 'text-blue-400'
     },
     {
@@ -58,8 +58,8 @@ const FeelingSelection = () => {
       gradient: 'from-green-500/10 to-emerald-500/10',
       bgGlow: 'group-hover:shadow-green-500/20',
       accent: 'text-green-400',
-      description: 'Calm & serene names',
-      pattern: 'Tranquil • Serene • Harmonious',
+      descriptionKey: 'peacefulDesc',
+      patternKey: 'peacefulPattern',
       patternColor: 'text-green-400'
     },
     {
@@ -69,8 +69,8 @@ const FeelingSelection = () => {
       gradient: 'from-yellow-500/10 to-orange-500/10',
       bgGlow: 'group-hover:shadow-yellow-500/20',
       accent: 'text-yellow-400',
-      description: 'Courageous & fearless names',
-      pattern: 'Fearless • Bold • Heroic',
+      descriptionKey: 'braveDesc',
+      patternKey: 'bravePattern',
       patternColor: 'text-yellow-400'
     },
     {
@@ -80,8 +80,8 @@ const FeelingSelection = () => {
       gradient: 'from-teal-500/10 to-cyan-500/10',
       bgGlow: 'group-hover:shadow-teal-500/20',
       accent: 'text-teal-400',
-      description: 'Soft & tender names',
-      pattern: 'Tender • Kind • Gentle',
+      descriptionKey: 'gentleDesc',
+      patternKey: 'gentlePattern',
       patternColor: 'text-teal-400'
     },
     {
@@ -91,8 +91,8 @@ const FeelingSelection = () => {
       gradient: 'from-indigo-500/10 to-purple-500/10',
       bgGlow: 'group-hover:shadow-indigo-500/20',
       accent: 'text-indigo-400',
-      description: 'Enigmatic & intriguing names',
-      pattern: 'Mysterious • Enigmatic • Intriguing',
+      descriptionKey: 'mysteriousDesc',
+      patternKey: 'mysteriousPattern',
       patternColor: 'text-indigo-400'
     },
     {
@@ -102,20 +102,31 @@ const FeelingSelection = () => {
       gradient: 'from-yellow-500/10 to-pink-500/10',
       bgGlow: 'group-hover:shadow-yellow-500/20',
       accent: 'text-yellow-400',
-      description: 'Happy & cheerful names',
-      pattern: 'Happy • Cheerful • Joyful',
+      descriptionKey: 'joyfulDesc',
+      patternKey: 'joyfulPattern',
       patternColor: 'text-yellow-400'
     },
     {
       id: 'noble',
       nameKey: 'noble',
       emoji: '👑',
-      gradient: 'from-amber-500/10 to-yellow-500/10',
-      bgGlow: 'group-hover:shadow-amber-500/20',
-      accent: 'text-amber-400',
-      description: 'Royal & dignified names',
-      pattern: 'Royal • Dignified • Noble',
+      gradient: 'from-yellow-500/10 to-amber-500/10',
+      bgGlow: 'group-hover:shadow-yellow-500/20',
+      accent: 'text-yellow-400',
+      descriptionKey: 'nobleDesc',
+      patternKey: 'noblePattern',
       patternColor: 'text-amber-400'
+    },
+    {
+      id: 'passionate',
+      nameKey: 'passionate',
+      emoji: '🔥',
+      gradient: 'from-red-500/10 to-pink-500/10',
+      bgGlow: 'group-hover:shadow-red-500/20',
+      accent: 'text-red-400',
+      descriptionKey: 'passionateDesc',
+      patternKey: 'passionatePattern',
+      patternColor: 'text-pink-400'
     },
     {
       id: 'creative',
@@ -124,53 +135,53 @@ const FeelingSelection = () => {
       gradient: 'from-purple-500/10 to-pink-500/10',
       bgGlow: 'group-hover:shadow-purple-500/20',
       accent: 'text-purple-400',
-      description: 'Artistic & imaginative names',
-      pattern: 'Artistic • Imaginative • Creative',
-      patternColor: 'text-purple-400'
+      descriptionKey: 'creativeDesc',
+      patternKey: 'creativePattern',
+      patternColor: 'text-pink-400'
     },
     {
       id: 'adventurous',
       nameKey: 'adventurous',
       emoji: '🗺️',
-      gradient: 'from-blue-500/10 to-green-500/10',
-      bgGlow: 'group-hover:shadow-blue-500/20',
-      accent: 'text-blue-400',
-      description: 'Explorer & wanderer names',
-      pattern: 'Explorer • Wanderer • Adventurous',
+      gradient: 'from-green-500/10 to-blue-500/10',
+      bgGlow: 'group-hover:shadow-green-500/20',
+      accent: 'text-green-400',
+      descriptionKey: 'adventurousDesc',
+      patternKey: 'adventurousPattern',
       patternColor: 'text-blue-400'
     },
     {
-      id: 'loving',
-      nameKey: 'loving',
-      emoji: '💝',
-      gradient: 'from-red-500/10 to-pink-500/10',
-      bgGlow: 'group-hover:shadow-red-500/20',
-      accent: 'text-red-400',
-      description: 'Caring & affectionate names',
-      pattern: 'Caring • Affectionate • Loving',
-      patternColor: 'text-red-400'
-    },
-    {
-      id: 'spiritual',
-      nameKey: 'spiritual',
-      emoji: '🙏',
-      gradient: 'from-violet-500/10 to-purple-500/10',
-      bgGlow: 'group-hover:shadow-violet-500/20',
-      accent: 'text-violet-400',
-      description: 'Sacred & divine names',
-      pattern: 'Sacred • Divine • Spiritual',
-      patternColor: 'text-violet-400'
-    },
-    {
-      id: 'modern',
-      nameKey: 'modern',
-      emoji: '⚡',
+      id: 'elegant',
+      nameKey: 'elegant',
+      emoji: '💎',
       gradient: 'from-gray-500/10 to-slate-500/10',
       bgGlow: 'group-hover:shadow-gray-500/20',
       accent: 'text-gray-400',
-      description: 'Contemporary & trendy names',
-      pattern: 'Contemporary • Trendy • Modern',
-      patternColor: 'text-gray-400'
+      descriptionKey: 'elegantDesc',
+      patternKey: 'elegantPattern',
+      patternColor: 'text-slate-400'
+    },
+    {
+      id: 'loyal',
+      nameKey: 'loyal',
+      emoji: '🐕',
+      gradient: 'from-brown-500/10 to-amber-500/10',
+      bgGlow: 'group-hover:shadow-brown-500/20',
+      accent: 'text-brown-400',
+      descriptionKey: 'loyalDesc',
+      patternKey: 'loyalPattern',
+      patternColor: 'text-amber-400'
+    },
+    {
+      id: 'radiant',
+      nameKey: 'radiant',
+      emoji: '☀️',
+      gradient: 'from-yellow-500/10 to-orange-500/10',
+      bgGlow: 'group-hover:shadow-yellow-500/20',
+      accent: 'text-yellow-400',
+      descriptionKey: 'radiantDesc',
+      patternKey: 'radiantPattern',
+      patternColor: 'text-orange-400'
     }
   ];
 
@@ -335,12 +346,12 @@ const FeelingSelection = () => {
                       
                       {/* Description */}
                       <p className="text-xs md:text-sm text-gray-400 mb-3 flex-1 leading-relaxed">
-                        {feeling.description}
+                        {t(feeling.descriptionKey)}
                       </p>
                       
                       {/* Pattern */}
                       <p className={`text-xs font-medium ${feeling.patternColor} mb-3 leading-relaxed`}>
-                        {feeling.pattern}
+                        {t(feeling.patternKey)}
                       </p>
                       
                       {/* NAME STYLE section - Fixed design */}
@@ -349,7 +360,7 @@ const FeelingSelection = () => {
                           {t('nameStyle')}
                         </div>
                         <div className={`text-xs font-medium ${feeling.patternColor} leading-relaxed line-clamp-2`}>
-                          {feeling.pattern}
+                          {t(feeling.patternKey)}
                         </div>
                       </div>
                       

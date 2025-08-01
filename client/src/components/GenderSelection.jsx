@@ -15,8 +15,8 @@ const GenderSelection = () => {
       gradient: 'from-blue-500/10 to-indigo-500/10',
       bgGlow: 'group-hover:shadow-blue-500/20',
       accent: 'text-blue-400',
-      description: 'Strong, masculine names',
-      pattern: 'Bold • Powerful • Traditional',
+      descriptionKey: 'maleDesc',
+      patternKey: 'malePattern',
       patternColor: 'text-blue-400'
     },
     {
@@ -27,8 +27,8 @@ const GenderSelection = () => {
       gradient: 'from-pink-500/10 to-rose-500/10',
       bgGlow: 'group-hover:shadow-pink-500/20',
       accent: 'text-pink-400',
-      description: 'Elegant, feminine names',
-      pattern: 'Graceful • Beautiful • Elegant',
+      descriptionKey: 'femaleDesc',
+      patternKey: 'femalePattern',
       patternColor: 'text-pink-400'
     },
     {
@@ -39,8 +39,8 @@ const GenderSelection = () => {
       gradient: 'from-purple-500/10 to-violet-500/10',
       bgGlow: 'group-hover:shadow-purple-500/20',
       accent: 'text-purple-400',
-      description: 'Versatile, gender-neutral names',
-      pattern: 'Modern • Inclusive • Versatile',
+      descriptionKey: 'unisexDesc',
+      patternKey: 'unisexPattern',
       patternColor: 'text-purple-400'
     }
   ];
@@ -195,12 +195,12 @@ const GenderSelection = () => {
                       
                       {/* Description */}
                       <p className="text-sm md:text-base text-gray-400 mb-4 flex-1 leading-relaxed">
-                        {gender.description}
+                        {t(gender.descriptionKey)}
                       </p>
                       
                       {/* Pattern */}
                       <p className={`text-sm font-medium ${gender.patternColor} mb-4 leading-relaxed`}>
-                        {gender.pattern}
+                        {t(gender.patternKey)}
                       </p>
                       
                       {/* NAME STYLE section - Fixed design */}
@@ -209,7 +209,7 @@ const GenderSelection = () => {
                           {t('nameStyle')}
                         </div>
                         <div className={`text-xs font-medium ${gender.patternColor} leading-relaxed line-clamp-2`}>
-                          {gender.pattern}
+                          {t(gender.patternKey)}
                         </div>
                       </div>
                       

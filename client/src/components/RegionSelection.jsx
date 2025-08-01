@@ -14,8 +14,8 @@ const RegionSelection = () => {
       gradient: 'from-green-500/10 to-emerald-500/10',
       bgGlow: 'group-hover:shadow-green-500/20',
       accent: 'text-green-400',
-      description: 'Traditional Arabic names',
-      pattern: 'Traditional • Meaningful • Spiritual',
+      descriptionKey: 'arabicDesc',
+      patternKey: 'arabicPattern',
       patternColor: 'text-emerald-400'
     },
     {
@@ -25,8 +25,8 @@ const RegionSelection = () => {
       gradient: 'from-blue-500/10 to-cyan-500/10',
       bgGlow: 'group-hover:shadow-blue-500/20',
       accent: 'text-blue-400',
-      description: 'Islamic & Muslim names',
-      pattern: 'Religious • Blessed • Noble',
+      descriptionKey: 'islamicDesc',
+      patternKey: 'islamicPattern',
       patternColor: 'text-cyan-400'
     },
     {
@@ -36,8 +36,8 @@ const RegionSelection = () => {
       gradient: 'from-orange-500/10 to-amber-500/10',
       bgGlow: 'group-hover:shadow-orange-500/20',
       accent: 'text-orange-400',
-      description: 'Hindu, Sanskrit & Eastern names',
-      pattern: 'Ancient Wisdom • Spiritual • Harmonious',
+      descriptionKey: 'asianDesc',
+      patternKey: 'asianPattern',
       patternColor: 'text-amber-400'
     },
     {
@@ -47,8 +47,8 @@ const RegionSelection = () => {
       gradient: 'from-red-500/10 to-pink-500/10',
       bgGlow: 'group-hover:shadow-red-500/20',
       accent: 'text-red-400',
-      description: 'Western & European names',
-      pattern: 'Classic • Timeless • Strong',
+      descriptionKey: 'westernDesc',
+      patternKey: 'westernPattern',
       patternColor: 'text-pink-400'
     },
     {
@@ -58,8 +58,8 @@ const RegionSelection = () => {
       gradient: 'from-yellow-500/10 to-orange-500/10',
       bgGlow: 'group-hover:shadow-yellow-500/20',
       accent: 'text-yellow-400',
-      description: 'Jewish & Hebrew names',
-      pattern: 'Biblical • Sacred • Heritage',
+      descriptionKey: 'jewishDesc',
+      patternKey: 'jewishPattern',
       patternColor: 'text-orange-400'
     },
     {
@@ -69,8 +69,8 @@ const RegionSelection = () => {
       gradient: 'from-purple-500/10 to-violet-500/10',
       bgGlow: 'group-hover:shadow-purple-500/20',
       accent: 'text-purple-400',
-      description: 'African & Tribal names',
-      pattern: 'Powerful • Ancestral • Unique',
+      descriptionKey: 'africanDesc',
+      patternKey: 'africanPattern',
       patternColor: 'text-violet-400'
     },
     {
@@ -80,8 +80,8 @@ const RegionSelection = () => {
       gradient: 'from-indigo-500/10 to-blue-500/10',
       bgGlow: 'group-hover:shadow-indigo-500/20',
       accent: 'text-indigo-400',
-      description: 'Global & International names',
-      pattern: 'Universal • Modern • Diverse',
+      descriptionKey: 'globalDesc',
+      patternKey: 'globalPattern',
       patternColor: 'text-blue-400'
     },
     {
@@ -91,8 +91,8 @@ const RegionSelection = () => {
       gradient: 'from-green-500/10 to-teal-500/10',
       bgGlow: 'group-hover:shadow-green-500/20',
       accent: 'text-green-400',
-      description: 'Latin & Mediterranean names',
-      pattern: 'Romantic • Passionate • Elegant',
+      descriptionKey: 'latinDesc',
+      patternKey: 'latinPattern',
       patternColor: 'text-teal-400'
     },
     {
@@ -102,8 +102,8 @@ const RegionSelection = () => {
       gradient: 'from-red-500/10 to-white/10',
       bgGlow: 'group-hover:shadow-red-500/20',
       accent: 'text-red-400',
-      description: 'North American names',
-      pattern: 'Modern • Independent • Bold',
+      descriptionKey: 'northAmericanDesc',
+      patternKey: 'northAmericanPattern',
       patternColor: 'text-white'
     },
     {
@@ -113,8 +113,8 @@ const RegionSelection = () => {
       gradient: 'from-blue-500/10 to-yellow-500/10',
       bgGlow: 'group-hover:shadow-blue-500/20',
       accent: 'text-blue-400',
-      description: 'European Union names',
-      pattern: 'Sophisticated • Cultural • Refined',
+      descriptionKey: 'europeanDesc',
+      patternKey: 'europeanPattern',
       patternColor: 'text-yellow-400'
     },
     {
@@ -124,8 +124,8 @@ const RegionSelection = () => {
       gradient: 'from-blue-500/10 to-red-500/10',
       bgGlow: 'group-hover:shadow-blue-500/20',
       accent: 'text-blue-400',
-      description: 'Slavic & Eastern European names',
-      pattern: 'Strong • Traditional • Resilient',
+      descriptionKey: 'slavicDesc',
+      patternKey: 'slavicPattern',
       patternColor: 'text-red-400'
     },
     {
@@ -135,8 +135,8 @@ const RegionSelection = () => {
       gradient: 'from-blue-500/10 to-yellow-500/10',
       bgGlow: 'group-hover:shadow-blue-500/20',
       accent: 'text-blue-400',
-      description: 'Scandinavian & Nordic names',
-      pattern: 'Nature • Peaceful • Strong',
+      descriptionKey: 'scandinavianDesc',
+      patternKey: 'scandinavianPattern',
       patternColor: 'text-yellow-400'
     },
     {
@@ -146,8 +146,8 @@ const RegionSelection = () => {
       gradient: 'from-blue-500/10 to-green-500/10',
       bgGlow: 'group-hover:shadow-blue-500/20',
       accent: 'text-blue-400',
-      description: 'Oceanic & Pacific names',
-      pattern: 'Adventurous • Free • Natural',
+      descriptionKey: 'oceanicDesc',
+      patternKey: 'oceanicPattern',
       patternColor: 'text-green-400'
     },
     {
@@ -157,8 +157,8 @@ const RegionSelection = () => {
       gradient: 'from-red-500/10 to-blue-500/10',
       bgGlow: 'group-hover:shadow-red-500/20',
       accent: 'text-red-400',
-      description: 'Korean & East Asian names',
-      pattern: 'Harmonious • Respectful • Balanced',
+      descriptionKey: 'koreanDesc',
+      patternKey: 'koreanPattern',
       patternColor: 'text-blue-400'
     },
     {
@@ -168,8 +168,8 @@ const RegionSelection = () => {
       gradient: 'from-red-500/10 to-white/10',
       bgGlow: 'group-hover:shadow-red-500/20',
       accent: 'text-red-400',
-      description: 'Japanese & Zen names',
-      pattern: 'Minimalist • Peaceful • Meaningful',
+      descriptionKey: 'japaneseDesc',
+      patternKey: 'japanesePattern',
       patternColor: 'text-white'
     }
   ];
@@ -330,12 +330,12 @@ const RegionSelection = () => {
                       
                       {/* Description */}
                       <p className="text-xs md:text-sm text-gray-400 mb-3 flex-1 leading-relaxed">
-                        {region.description}
+                        {t(region.descriptionKey)}
                       </p>
                       
                       {/* Pattern */}
                       <p className={`text-xs font-medium ${region.patternColor} mb-3 leading-relaxed`}>
-                        {region.pattern}
+                        {t(region.patternKey)}
                       </p>
                       
                       {/* NAME STYLE section - Fixed design */}
@@ -344,7 +344,7 @@ const RegionSelection = () => {
                           {t('nameStyle')}
                         </div>
                         <div className={`text-xs font-medium ${region.patternColor} leading-relaxed line-clamp-2`}>
-                          {region.pattern}
+                          {t(region.patternKey)}
                         </div>
                       </div>
                       

@@ -1,12 +1,12 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import LandingPage from './components/LandingPage';
-import GenderSelection from './components/GenderSelection';
-import RegionSelection from './components/RegionSelection';
-import FeelingSelection from './components/FeelingSelection';
-import NameForm from './components/NameForm';
-import NameDisplay from './components/NameDisplay';
-import useNameStore from './store/useNameStore';
+import LandingPage from './components/LandingPage.jsx';
+import GenderSelection from './components/GenderSelection.jsx';
+import RegionSelection from './components/RegionSelection.jsx';
+import FeelingSelection from './components/FeelingSelection.jsx';
+import NameForm from './components/NameForm.jsx';
+import NameDisplay from './components/NameDisplay.jsx';
+import useNameStore from './store/useNameStore.js';
 import './App.css';
 
 function App() {

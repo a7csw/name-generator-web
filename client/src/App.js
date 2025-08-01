@@ -1,8 +1,5 @@
 import React from 'react';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { Toaster } from 'react-hot-toast';
 import { motion, AnimatePresence } from 'framer-motion';
-import ThemeProvider from './components/ThemeProvider';
 import LandingPage from './components/LandingPage';
 import GenderSelection from './components/GenderSelection';
 import RegionSelection from './components/RegionSelection';
@@ -11,17 +8,6 @@ import NameForm from './components/NameForm';
 import NameDisplay from './components/NameDisplay';
 import useNameStore from './store/useNameStore';
 import './App.css';
-
-// Create a client
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-      retry: 1,
-      staleTime: 1000 * 60 * 5, // 5 minutes
-    },
-  },
-});
 
 function App() {
   const { currentStep } = useNameStore();
@@ -44,51 +30,19 @@ function App() {
   };
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
-        <div className="min-h-screen">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentStep}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              {renderCurrentStep()}
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        {/* Toast Notifications - Updated for dark theme */}
-        <Toaster
-          position="bottom-right"
-          toastOptions={{
-            duration: 3000,
-            style: {
-              background: 'rgba(15, 23, 42, 0.95)',
-              color: '#f1f5f9',
-              border: '1px solid rgba(124, 110, 242, 0.3)',
-              borderRadius: '1rem',
-              backdropFilter: 'blur(16px)',
-              boxShadow: '0 0 30px rgba(124, 110, 242, 0.2)',
-            },
-            success: {
-              iconTheme: {
-                primary: '#7c6ef2',
-                secondary: '#ffffff',
-              },
-            },
-            error: {
-              iconTheme: {
-                primary: '#ef4444',
-                secondary: '#ffffff',
-              },
-            },
-          }}
-        />
-      </ThemeProvider>
-    </QueryClientProvider>
+    <div className="min-h-screen">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentStep}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          {renderCurrentStep()}
+        </motion.div>
+      </AnimatePresence>
+    </div>
   );
 }
 

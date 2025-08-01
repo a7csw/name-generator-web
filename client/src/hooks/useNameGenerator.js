@@ -4,7 +4,7 @@ import { toast } from 'react-hot-toast';
 import useNameStore from '../store/useNameStore';
 import { getRandomNames } from '../data/mockNames';
 
-const BASE_URL = 'http://localhost:3001';
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
 // Configure axios
 const api = axios.create({

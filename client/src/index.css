@@ -629,7 +629,7 @@ input[type="range"]::-moz-range-thumb:hover {
 }
 
 @media (min-width: 1536px) {
-  .2xl\:grid-cols-5 {
+  .\32xl\:grid-cols-5 {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }

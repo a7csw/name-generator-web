@@ -179,54 +179,106 @@ const NameForm = () => {
               className="lg:col-span-4"
             >
               <div className="bg-gradient-to-br from-primary-500/10 to-accent-purple/10 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-primary-500/20 h-full">
-                <div className="flex items-center gap-3 mb-6">
-                  <SparklesIcon className="h-6 w-6 text-primary-400" />
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="p-2 bg-primary-500/20 rounded-xl">
+                    <SparklesIcon className="h-6 w-6 text-primary-400" />
+                  </div>
                   <h3 className="text-xl md:text-2xl font-bold text-white">{t('yourSelection')}</h3>
                 </div>
+                
                 <div className="space-y-6">
                   {/* Gender Card */}
                   <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    className="bg-white/5 rounded-2xl p-4 border border-white/10 hover:border-white/20 transition-all duration-300"
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    className="group relative bg-white/5 rounded-2xl p-5 border border-white/10 hover:border-primary-500/30 transition-all duration-300 overflow-hidden"
                   >
-                    <div className="flex items-center gap-4">
-                      <div className="text-2xl">
-                        {selectedGender === 'male' ? '👨' : selectedGender === 'female' ? '👩' : '👥'}
+                    {/* Gradient overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary-500/5 to-accent-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+                    
+                    <div className="relative z-10 flex items-center gap-4">
+                      <div className="flex-shrink-0">
+                        <div className="w-12 h-12 bg-primary-500/20 rounded-xl flex items-center justify-center">
+                          <span className="text-2xl">
+                            {selectedGender === 'male' ? '👨' : selectedGender === 'female' ? '👩' : '👥'}
+                          </span>
+                        </div>
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-xs text-gray-500 uppercase tracking-wide font-medium">{t('gender')}</p>
-                        <p className="text-white font-bold text-base capitalize break-words">{t(selectedGender || 'male')}</p>
+                        <p className="text-xs text-gray-400 uppercase tracking-wide font-medium mb-1">{t('gender')}</p>
+                        <p className="text-white font-bold text-lg capitalize break-words leading-tight">{t(selectedGender || 'male')}</p>
+                      </div>
+                      <div className="flex-shrink-0">
+                        <div className="w-2 h-2 bg-primary-400 rounded-full opacity-60" />
                       </div>
                     </div>
                   </motion.div>
 
                   {/* Origin Card */}
                   <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    className="bg-white/5 rounded-2xl p-4 border border-white/10 hover:border-white/20 transition-all duration-300"
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    className="group relative bg-white/5 rounded-2xl p-5 border border-white/10 hover:border-primary-500/30 transition-all duration-300 overflow-hidden"
                   >
-                    <div className="flex items-center gap-4">
-                      <div className="text-2xl">🌍</div>
+                    {/* Gradient overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary-500/5 to-accent-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+                    
+                    <div className="relative z-10 flex items-center gap-4">
+                      <div className="flex-shrink-0">
+                        <div className="w-12 h-12 bg-accent-purple/20 rounded-xl flex items-center justify-center">
+                          <span className="text-2xl">🌍</span>
+                        </div>
+                      </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-xs text-gray-500 uppercase tracking-wide font-medium">{t('origin')}</p>
-                        <p className="text-white font-bold text-base break-words">{t(selectedRegion || 'global')}</p>
+                        <p className="text-xs text-gray-400 uppercase tracking-wide font-medium mb-1">{t('origin')}</p>
+                        <p className="text-white font-bold text-lg break-words leading-tight">{t(selectedRegion || 'global')}</p>
+                      </div>
+                      <div className="flex-shrink-0">
+                        <div className="w-2 h-2 bg-accent-purple rounded-full opacity-60" />
                       </div>
                     </div>
                   </motion.div>
 
                   {/* Feeling Card */}
                   <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    className="bg-white/5 rounded-2xl p-4 border border-white/10 hover:border-white/20 transition-all duration-300"
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    className="group relative bg-white/5 rounded-2xl p-5 border border-white/10 hover:border-primary-500/30 transition-all duration-300 overflow-hidden"
                   >
-                    <div className="flex items-center gap-4">
-                      <div className="text-2xl">✨</div>
+                    {/* Gradient overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary-500/5 to-accent-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+                    
+                    <div className="relative z-10 flex items-center gap-4">
+                      <div className="flex-shrink-0">
+                        <div className="w-12 h-12 bg-accent-pink/20 rounded-xl flex items-center justify-center">
+                          <span className="text-2xl">✨</span>
+                        </div>
+                      </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-xs text-gray-500 uppercase tracking-wide font-medium">{t('feeling')}</p>
-                        <p className="text-white font-bold text-base break-words">{t(selectedFeeling || 'unique')}</p>
+                        <p className="text-xs text-gray-400 uppercase tracking-wide font-medium mb-1">{t('feeling')}</p>
+                        <p className="text-white font-bold text-lg break-words leading-tight">{t(selectedFeeling || 'unique')}</p>
+                      </div>
+                      <div className="flex-shrink-0">
+                        <div className="w-2 h-2 bg-accent-pink rounded-full opacity-60" />
                       </div>
                     </div>
                   </motion.div>
+                </div>
+
+                {/* Summary Stats */}
+                <div className="mt-8 pt-6 border-t border-white/10">
+                  <div className="bg-white/5 rounded-2xl p-4">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-sm text-gray-400 font-medium">{t('numberOfNames')}</span>
+                      <span className="text-sm text-primary-400 font-bold">{filters.count}</span>
+                    </div>
+                    <div className="w-full bg-white/10 rounded-full h-2">
+                      <div 
+                        className="bg-gradient-to-r from-primary-500 to-accent-purple h-2 rounded-full transition-all duration-300"
+                        style={{ width: `${(filters.count / 10) * 100}%` }}
+                      />
+                    </div>
+                    <p className="text-xs text-gray-500 mt-2 text-center">
+                      {t('chooseBetween')}
+                    </p>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -240,6 +292,13 @@ const NameForm = () => {
             >
               <div className="bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/10 p-6 md:p-8">
                 
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="p-2 bg-primary-500/20 rounded-xl">
+                    <SparklesIcon className="h-6 w-6 text-primary-400" />
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold text-white">{t('generateNames')}</h3>
+                </div>
+                
                 <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
                   
                   {/* Gender Selection */}
@@ -249,7 +308,7 @@ const NameForm = () => {
                     </label>
                     <Listbox value={selectedGenderData} onChange={handleGenderChange}>
                       <div className="relative">
-                        <Listbox.Button className="relative w-full cursor-pointer rounded-2xl bg-white/5 backdrop-blur-sm py-4 pl-4 pr-12 text-left border border-white/10 hover:border-white/20 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/50 transition-all duration-300">
+                        <Listbox.Button className="relative w-full cursor-pointer rounded-2xl bg-white/5 backdrop-blur-sm py-4 pl-4 pr-12 text-left border border-white/10 hover:border-primary-500/30 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/50 transition-all duration-300">
                           <span className="block truncate text-white">
                             {selectedGenderData?.label || t(selectedGender || 'male')}
                           </span>
@@ -310,7 +369,7 @@ const NameForm = () => {
                     </label>
                     <Listbox value={selectedCulture} onChange={handleCultureChange}>
                       <div className="relative">
-                        <Listbox.Button className="relative w-full cursor-pointer rounded-2xl bg-white/5 backdrop-blur-sm py-4 pl-4 pr-12 text-left border border-white/10 hover:border-white/20 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/50 transition-all duration-300">
+                        <Listbox.Button className="relative w-full cursor-pointer rounded-2xl bg-white/5 backdrop-blur-sm py-4 pl-4 pr-12 text-left border border-white/10 hover:border-primary-500/30 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/50 transition-all duration-300">
                           <span className="block truncate text-white">
                             {selectedCulture?.label || t(selectedRegion || 'global')}
                           </span>
@@ -429,36 +488,38 @@ const NameForm = () => {
                       repeat: Infinity,
                       ease: "easeInOut"
                     }}
-                    className="mb-4"
+                    className="mb-6"
                   >
-                    <SparklesIcon className="h-12 w-12 text-primary-400 mx-auto" />
+                    <div className="w-16 h-16 bg-primary-500/20 rounded-2xl flex items-center justify-center mx-auto">
+                      <SparklesIcon className="h-8 w-8 text-primary-400" />
+                    </div>
                   </motion.div>
                   
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
                     {t('readyToDiscover')}
                   </h3>
-                  <p className="text-gray-400 text-base leading-relaxed">
+                  <p className="text-gray-400 text-base leading-relaxed max-w-sm mx-auto">
                     {t('generateBeautifulNames')} {t(selectedGender || 'male')} {t('names')} {t('from')} {t(selectedRegion || 'global')} {t('fromCulturalTraditions')}
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-4">
-                  <div className="bg-white/5 rounded-2xl p-4 border border-white/10 text-center">
-                    <div className="text-2xl mb-2">💖</div>
-                    <h4 className="text-white font-semibold text-sm mb-1">{t('meaningfulOrigins')}</h4>
-                    <p className="text-gray-400 text-xs">{t('meaningfulOriginsDesc')}</p>
+                <div className="space-y-4">
+                  <div className="bg-white/5 rounded-2xl p-5 border border-white/10 text-center group hover:border-primary-500/30 transition-all duration-300">
+                    <div className="text-3xl mb-3">💖</div>
+                    <h4 className="text-white font-semibold text-base mb-2">{t('meaningfulOrigins')}</h4>
+                    <p className="text-gray-400 text-sm leading-relaxed">{t('meaningfulOriginsDesc')}</p>
                   </div>
                   
-                  <div className="bg-white/5 rounded-2xl p-4 border border-white/10 text-center">
-                    <div className="text-2xl mb-2">🌟</div>
-                    <h4 className="text-white font-semibold text-sm mb-1">{t('culturalAuthenticity')}</h4>
-                    <p className="text-gray-400 text-xs">{t('culturalAuthenticityDesc')}</p>
+                  <div className="bg-white/5 rounded-2xl p-5 border border-white/10 text-center group hover:border-primary-500/30 transition-all duration-300">
+                    <div className="text-3xl mb-3">🌟</div>
+                    <h4 className="text-white font-semibold text-base mb-2">{t('culturalAuthenticity')}</h4>
+                    <p className="text-gray-400 text-sm leading-relaxed">{t('culturalAuthenticityDesc')}</p>
                   </div>
                   
-                  <div className="bg-white/5 rounded-2xl p-4 border border-white/10 text-center">
-                    <div className="text-2xl mb-2">📋</div>
-                    <h4 className="text-white font-semibold text-sm mb-1">{t('easyToCopy')}</h4>
-                    <p className="text-gray-400 text-xs">{t('easyToCopyDesc')}</p>
+                  <div className="bg-white/5 rounded-2xl p-5 border border-white/10 text-center group hover:border-primary-500/30 transition-all duration-300">
+                    <div className="text-3xl mb-3">📋</div>
+                    <h4 className="text-white font-semibold text-base mb-2">{t('easyToCopy')}</h4>
+                    <p className="text-gray-400 text-sm leading-relaxed">{t('easyToCopyDesc')}</p>
                   </div>
                 </div>
               </div>

@@ -78,6 +78,15 @@ const translations = {
     culturalAuthenticityDesc: 'Authentic names from real traditions',
     easyToCopy: 'Easy to copy & share',
     easyToCopyDesc: 'Simple copy and share functionality',
+    // Additional keys for NameDisplay
+    creatingNames: 'Creating Your Perfect Names',
+    craftingNames: 'Crafting meaningful names with cultural depth...',
+    weavingMagic: 'Weaving cultural magic into every name',
+    yourBeautifulNames: 'Your Beautiful Names',
+    tradition: 'tradition',
+    copied: 'Copied!',
+    copyAll: 'Copy All',
+    generateMore: 'Generate More',
   },
   ar: {
     nameCraft: 'NameCraft', // Keep in English
@@ -399,7 +408,7 @@ const translations = {
     modernNeutral: 'Moderne geschlechtsneutrale Namen',
     tapCard: 'Tippen Sie auf eine Karte, um Ihre Reise fortzusetzen',
     chooseOrigin: 'Herkunft Wählen',
-    selectCultural: 'Wählen Sie die kulturelle Herkunft für Ihre Namen',
+    selectCultural: 'Wählen Sie die kulturelle Herkunft für Ihre',
     names: 'Namen',
     chooseFeeling: 'Gefühl Wählen',
     selectEmotional: 'Wählen Sie die emotionale Essenz für Ihre Namen',
@@ -458,6 +467,15 @@ const translations = {
     culturalAuthenticityDesc: 'Authentische Namen aus echten Traditionen',
     easyToCopy: 'Einfach zu kopieren und teilen',
     easyToCopyDesc: 'Einfache Kopier- und Teilen-Funktionalität',
+    // Additional keys for NameDisplay
+    creatingNames: 'Ihre perfekten Namen erstellen',
+    craftingNames: 'Bedeutungsvolle Namen mit kultureller Tiefe erstellen...',
+    weavingMagic: 'Kulturelle Magie in jeden Namen weben',
+    yourBeautifulNames: 'Ihre schönen Namen',
+    tradition: 'Tradition',
+    copied: 'Kopiert!',
+    copyAll: 'Alle kopieren',
+    generateMore: 'Mehr generieren',
   },
   ja: {
     nameCraft: 'NameCraft', // Keep in English

@@ -121,10 +121,10 @@ const NameDisplay = () => {
                 </motion.div>
 
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                  Ready to Discover Names
+                  {t('readyToDiscover')}
                 </h2>
                 <p className="text-base md:text-lg text-gray-400 mb-8 max-w-lg mx-auto leading-relaxed">
-                  Generate beautiful {t(selectedGender || 'male')} names from {t(selectedRegion || 'global')} cultural traditions
+                  {t('generateBeautifulNames')} {t(selectedGender || 'male')} {t('names')} {t('from')} {t(selectedRegion || 'global')} {t('fromCulturalTraditions')}
                 </p>
 
                 {/* Feature highlights */}
@@ -134,21 +134,21 @@ const NameDisplay = () => {
                     className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10"
                   >
                     <div className="text-2xl mb-2">💝</div>
-                    <p className="text-sm text-gray-300">Meaningful origins</p>
+                    <p className="text-sm text-gray-300">{t('meaningfulOrigins')}</p>
                   </motion.div>
                   <motion.div
                     whileHover={{ scale: 1.02 }}
                     className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10"
                   >
                     <div className="text-2xl mb-2">🌟</div>
-                    <p className="text-sm text-gray-300">Cultural authenticity</p>
+                    <p className="text-sm text-gray-300">{t('culturalAuthenticity')}</p>
                   </motion.div>
                   <motion.div
                     whileHover={{ scale: 1.02 }}
                     className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10"
                   >
                     <div className="text-2xl mb-2">📋</div>
-                    <p className="text-sm text-gray-300">Easy to copy & share</p>
+                    <p className="text-sm text-gray-300">{t('easyToCopy')}</p>
                   </motion.div>
                 </div>
               </motion.div>
@@ -179,7 +179,7 @@ const NameDisplay = () => {
                 </motion.div>
 
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                  Creating Your Perfect Names
+                  {t('creatingNames')}
                 </h2>
                 
                 <div className="max-w-md mx-auto mb-8">
@@ -188,7 +188,7 @@ const NameDisplay = () => {
                     transition={{ duration: 2, repeat: Infinity }}
                     className="text-base text-gray-400 mb-4"
                   >
-                    Crafting meaningful names with cultural depth...
+                    {t('craftingNames')}
                   </motion.p>
                   
                   {/* Enhanced loading bar */}
@@ -207,7 +207,7 @@ const NameDisplay = () => {
                   transition={{ duration: 3, repeat: Infinity }}
                   className="text-sm text-primary-300"
                 >
-                  ✨ Weaving cultural magic into every name ✨
+                  ✨ {t('weavingMagic')} ✨
                 </motion.div>
               </motion.div>
             )}
@@ -229,10 +229,10 @@ const NameDisplay = () => {
                 >
                   <div>
                     <h2 className="text-xl md:text-2xl font-bold text-white mb-2">
-                      Your Beautiful Names ✨
+                      {t('yourBeautifulNames')} ✨
                     </h2>
                     <p className="text-sm md:text-base text-gray-400">
-                      {generatedNames.length} {t(selectedGender || 'male')} names from {t(selectedRegion || 'global')} tradition
+                      {generatedNames.length} {t(selectedGender || 'male')} {t('names')} {t('from')} {t(selectedRegion || 'global')} {t('tradition')}
                     </p>
                   </div>
 
@@ -254,7 +254,7 @@ const NameDisplay = () => {
                             className="flex items-center gap-2"
                           >
                             <CheckIcon className="h-4 w-4 text-green-400" />
-                            <span>Copied!</span>
+                            <span>{t('copied')}</span>
                           </motion.div>
                         ) : (
                           <motion.div
@@ -265,7 +265,7 @@ const NameDisplay = () => {
                             className="flex items-center gap-2"
                           >
                             <DocumentDuplicateIcon className="h-4 w-4" />
-                            <span>Copy All</span>
+                            <span>{t('copyAll')}</span>
                           </motion.div>
                         )}
                       </AnimatePresence>
@@ -278,7 +278,7 @@ const NameDisplay = () => {
                       className="flex items-center gap-2"
                     >
                       <SparklesIcon className="h-4 w-4" />
-                      Generate More
+                      {t('generateMore')}
                     </Button>
                   </div>
                 </motion.div>

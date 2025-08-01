@@ -100,53 +100,48 @@ const NameForm = () => {
             opacity: [0.05, 0.1, 0.05],
           }}
           transition={{ 
-            duration: 20,
+            duration: 8,
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute top-20 right-20 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl"
         />
         <motion.div
           animate={{ 
             scale: [1.1, 1, 1.1],
-            opacity: [0.03, 0.08, 0.03],
+            opacity: [0.1, 0.05, 0.1],
           }}
           transition={{ 
-            duration: 25,
+            duration: 10,
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute bottom-20 left-20 w-80 h-80 bg-accent-purple/8 rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent-purple/20 rounded-full blur-3xl"
         />
       </div>
 
       {/* Back Button */}
       <motion.button
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        whileHover={{ 
-          scale: 1.05, 
-          x: -2,
-          boxShadow: "0 0 15px rgba(124, 110, 242, 0.3)"
-        }}
+        initial={{ x: -50, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        whileHover={{ scale: 1.05, x: -2 }}
         whileTap={{ scale: 0.95 }}
         onClick={goBack}
-        className="absolute top-6 left-6 z-20 flex items-center gap-2 px-4 py-2 text-gray-300 hover:text-white transition-all duration-200 rounded-2xl hover:bg-white/10"
+        className="absolute top-6 left-6 z-50 flex items-center gap-2 px-4 py-2 text-gray-300 hover:text-white transition-colors duration-200 rounded-2xl hover:bg-white/10 backdrop-blur-sm"
       >
-        <ArrowLeftIcon className="h-5 w-5" />
-        <span className="font-medium">{t('back')}</span>
+        <ArrowLeftIcon className="h-4 w-4" />
+        <span className="text-sm font-medium">{t('back')}</span>
       </motion.button>
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen p-4 md:p-6">
-        <div className="max-w-7xl w-full">
-          
+        <div className="max-w-6xl w-full">
           {/* Header */}
           <motion.div
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: -50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-8 md:mb-12 pt-16 md:pt-8"
+            className="text-center mb-8"
           >
             <motion.div
               animate={{ 
@@ -158,39 +153,36 @@ const NameForm = () => {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="mb-6"
+              className="mb-4"
             >
-              <SparklesIcon className="h-16 w-16 text-primary-400 mx-auto" />
+              <SparklesIcon className="h-12 w-12 text-primary-400 mx-auto" />
             </motion.div>
-            
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white via-gray-200 to-gray-300 bg-clip-text text-transparent mb-4 leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white via-gray-200 to-gray-300 bg-clip-text text-transparent mb-4 leading-tight px-4">
               {t('generateNames')}
             </h2>
-            <p className="text-base md:text-lg text-gray-400 font-light max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-gray-400 font-light max-w-2xl mx-auto px-4 leading-relaxed">
               {t('fineTune')}
             </p>
           </motion.div>
 
           <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="grid grid-cols-1 lg:grid-cols-5 gap-6 md:gap-8"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8"
           >
-            
             {/* Selection Summary - Left Column */}
             <motion.div
               initial={{ x: -50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="lg:col-span-1"
+              className="lg:col-span-4"
             >
               <div className="bg-gradient-to-br from-primary-500/10 to-accent-purple/10 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-primary-500/20 h-full">
                 <div className="flex items-center gap-3 mb-6">
                   <SparklesIcon className="h-6 w-6 text-primary-400" />
                   <h3 className="text-xl md:text-2xl font-bold text-white">{t('yourSelection')}</h3>
                 </div>
-                
                 <div className="space-y-6">
                   {/* Gender Card */}
                   <motion.div
@@ -244,7 +236,7 @@ const NameForm = () => {
               initial={{ x: 50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="lg:col-span-2"
+              className="lg:col-span-4"
             >
               <div className="bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/10 p-6 md:p-8">
                 
@@ -353,14 +345,9 @@ const NameForm = () => {
                                 >
                                   {({ selected }) => (
                                     <>
-                                      <div>
-                                        <span className="block truncate font-medium">
-                                          {culture.label}
-                                        </span>
-                                        <span className="text-xs text-gray-400 mt-1 block">
-                                          {culture.description}
-                                        </span>
-                                      </div>
+                                      <span className="block truncate font-medium">
+                                        {culture.label}
+                                      </span>
                                       {selected && (
                                         <span className="absolute inset-y-0 left-0 flex items-center pl-4 text-primary-400">
                                           <CheckIcon className="h-5 w-5" />
@@ -377,7 +364,7 @@ const NameForm = () => {
                     </Listbox>
                   </div>
 
-                  {/* Count Selection - Enhanced Design */}
+                  {/* Count Selection */}
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-4">
                       {t('numberOfNames')}
@@ -428,7 +415,7 @@ const NameForm = () => {
               initial={{ x: 50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="lg:col-span-2"
+              className="lg:col-span-4"
             >
               <div className="bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/10 p-6 md:p-8 h-full">
                 <div className="text-center mb-8">
@@ -451,11 +438,11 @@ const NameForm = () => {
                     {t('readyToDiscover')}
                   </h3>
                   <p className="text-gray-400 text-base leading-relaxed">
-                    {t('generateBeautiful')} {t(selectedGender || 'male')} {t('names')} {t('from')} {t(selectedRegion || 'global')} {t('culturalTraditions')}
+                    {t('generateBeautifulNames')} {t(selectedGender || 'male')} {t('names')} {t('from')} {t(selectedRegion || 'global')} {t('fromCulturalTraditions')}
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 gap-4">
                   <div className="bg-white/5 rounded-2xl p-4 border border-white/10 text-center">
                     <div className="text-2xl mb-2">💖</div>
                     <h4 className="text-white font-semibold text-sm mb-1">{t('meaningfulOrigins')}</h4>

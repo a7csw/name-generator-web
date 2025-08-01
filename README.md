@@ -1,6 +1,6 @@
 # NameCraft - AI-Powered Name Generator
 
-A modern, professional React-based name generator web application with multi-language support, interactive wizard flow, and beautiful dark theme design.
+A modern, professional React-based name generator web application with multi-language support, interactive wizard flow, and beautiful dark theme design. Built with **Vite** for lightning-fast development and optimal performance.
 
 ## 🎯 Project Overview
 
@@ -14,12 +14,14 @@ A modern, professional React-based name generator web application with multi-lan
 - **🎯 Cultural Diversity**: 15+ cultural origins and name styles
 - **💫 Modern UI/UX**: Responsive design with Framer Motion animations
 - **📱 Mobile-First**: Optimized for all devices and screen sizes
-- **⚡ Performance**: Optimized with React Query and Zustand
+- **⚡ Performance**: Optimized with React Query, Zustand, and Vite
+- **🚀 Fast Development**: Hot Module Replacement (HMR) with Vite
 
 ## 🏗️ Architecture
 
 ### Frontend Stack
 - **React 18** with modern hooks
+- **Vite 6** - Lightning-fast build tool and dev server
 - **Tailwind CSS** for styling
 - **Framer Motion** for animations
 - **Zustand** for state management
@@ -45,13 +47,17 @@ client/
 │   │   └── useNameGenerator.js # Data fetching hooks
 │   └── data/
 │       └── mockNames.js     # Mock data for development
+├── index.html               # Vite entry point
+├── vite.config.js           # Vite configuration
+├── vitest.config.js         # Testing configuration
+└── package.json             # Dependencies and scripts
 ```
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js 16+ 
-- npm or yarn
+- Node.js 20.19+ (required for Vite 6)
+- npm, yarn, pnpm, or bun
 
 ### Installation
 ```bash
@@ -62,10 +68,19 @@ cd client
 npm install
 
 # Start development server
-npm start
+npm run dev
 ```
 
-The application will run on `http://localhost:3000`
+The application will run on `http://localhost:3000` with **lightning-fast Hot Module Replacement (HMR)**.
+
+### Available Scripts
+```bash
+npm run dev          # Start development server with HMR
+npm run build        # Build for production
+npm run preview      # Preview production build locally
+npm run test         # Run tests with Vitest
+npm run lint         # Lint code with ESLint
+```
 
 ## 🔌 Backend Integration
 
@@ -119,8 +134,18 @@ GET /api/feelings
 ### API Configuration
 
 The frontend is configured to connect to:
-- **Development**: `http://localhost:3001/api`
-- **Production**: Environment variable `REACT_APP_API_URL`
+- **Development**: `http://localhost:3001/api` (via `VITE_API_URL` environment variable)
+- **Production**: Environment variable `VITE_API_URL`
+
+### Environment Variables
+```bash
+# Development environment
+VITE_APP_NAME=NameCraft
+VITE_APP_VERSION=1.0.0
+VITE_API_URL=http://localhost:3001/api
+VITE_DEV_MODE=true
+VITE_ENABLE_MOCK_DATA=true
+```
 
 ### Mock Data
 
@@ -134,7 +159,7 @@ Currently, the application uses mock data from `client/src/data/mockNames.js` fo
 - **Background**: Dark theme (`#0a0f1a` to `#1a1f2e`)
 
 ### Typography
-- **Font**: System UI stack
+- **Font**: Inter (Google Fonts)
 - **Responsive**: Dynamic font sizing with `clamp()`
 - **Multi-language**: Optimized for RTL and LTR languages
 
@@ -168,14 +193,6 @@ Optimized for touch interactions and various screen sizes.
 
 ## 🔧 Development
 
-### Available Scripts
-```bash
-npm start          # Start development server
-npm run build      # Build for production
-npm test           # Run tests
-npm run eject      # Eject from Create React App
-```
-
 ### State Management
 - **Zustand**: Global state for user preferences and wizard flow
 - **React Query**: Server state management and caching
@@ -186,6 +203,11 @@ npm run eject      # Eject from Create React App
 - **Prettier**: Code formatting
 - **Tailwind**: Utility-first CSS
 
+### Testing
+- **Vitest**: Fast unit testing
+- **React Testing Library**: Component testing
+- **jsdom**: DOM environment for tests
+
 ## 🚀 Deployment
 
 ### Build for Production
@@ -194,9 +216,11 @@ cd client
 npm run build
 ```
 
-### Environment Variables
+The built files will be in `client/dist/` directory.
+
+### Environment Variables for Production
 ```bash
-REACT_APP_API_URL=http://localhost:3001/api
+VITE_API_URL=https://your-api-domain.com/api
 ```
 
 ## 🤝 Backend Development Guidelines

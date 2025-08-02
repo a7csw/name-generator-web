@@ -54,7 +54,7 @@ const RegionSelection = () => {
     {
       id: 'jewish',
       nameKey: 'jewish',
-      flag: '✡️',
+      flag: '⛪',
       gradient: 'from-yellow-500/10 to-orange-500/10',
       bgGlow: 'group-hover:shadow-yellow-500/20',
       accent: 'text-yellow-400',

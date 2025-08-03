@@ -451,7 +451,10 @@ const ResultsPage = () => {
   };
 
   useEffect(() => {
-    generateNames();
+    // Only generate names if we're in generating state (triggered from summary page)
+    if (isGenerating) {
+      generateNames();
+    }
   }, []);
 
   const generateNames = async () => {
@@ -804,7 +807,7 @@ const ResultsPage = () => {
                            >
                              🔊
                            </motion.div>
-                           Speaking...
+                           {t('speaking')}
                          </motion.div>
                        )}
                      </div>

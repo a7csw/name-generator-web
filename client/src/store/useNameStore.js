@@ -88,6 +88,8 @@ const translations = {
     copied: 'Copied!',
     copyAll: 'Copy All',
     generateMore: 'Generate More',
+    speaking: 'Speaking...',
+    clickToSelect: 'Click to select',
     // Region descriptions
     arabicDesc: 'Traditional Arabic names',
     islamicDesc: 'Islamic & Muslim names',
@@ -239,6 +241,15 @@ const translations = {
     culturalAuthenticityDesc: 'أسماء أصيلة من تقاليد حقيقية',
     easyToCopy: 'سهل النسخ والمشاركة',
     easyToCopyDesc: 'وظيفة نسخ ومشاركة بسيطة',
+    // Additional keys for ResultsPage
+    creatingNames: 'إنشاء أسمائك المثالية',
+    craftingNames: 'إنشاء أسماء ذات معنى بعمق ثقافي...',
+    weavingMagic: 'نسج السحر الثقافي في كل اسم',
+    yourBeautifulNames: 'أسماؤك الجميلة',
+    copied: 'تم النسخ!',
+    copyAll: 'نسخ الكل',
+    generateMore: 'إنشاء المزيد',
+    speaking: 'جاري النطق...',
     // Region descriptions
     arabicDesc: 'أسماء عربية تقليدية',
     islamicDesc: 'أسماء إسلامية ومسلمة',
@@ -390,6 +401,15 @@ const translations = {
     culturalAuthenticityDesc: 'Noms authentiques de vraies traditions',
     easyToCopy: 'Facile à copier et partager',
     easyToCopyDesc: 'Fonctionnalité simple de copie et partage',
+    // Additional keys for ResultsPage
+    creatingNames: 'Création de vos noms parfaits',
+    craftingNames: 'Création de noms significatifs avec une profondeur culturelle...',
+    weavingMagic: 'Tissage de la magie culturelle dans chaque nom',
+    yourBeautifulNames: 'Vos beaux noms',
+    copied: 'Copié !',
+    copyAll: 'Tout copier',
+    generateMore: 'Générer plus',
+    speaking: 'Parle...',
     // Region descriptions
     arabicDesc: 'Noms arabes traditionnels',
     islamicDesc: 'Noms islamiques et musulmans',
@@ -541,6 +561,15 @@ const translations = {
     culturalAuthenticityDesc: 'Nombres auténticos de tradiciones reales',
     easyToCopy: 'Fácil de copiar y compartir',
     easyToCopyDesc: 'Funcionalidad simple de copiar y compartir',
+    // Additional keys for ResultsPage
+    creatingNames: 'Creando tus nombres perfectos',
+    craftingNames: 'Creando nombres significativos con profundidad cultural...',
+    weavingMagic: 'Tejiendo magia cultural en cada nombre',
+    yourBeautifulNames: 'Tus hermosos nombres',
+    copied: '¡Copiado!',
+    copyAll: 'Copiar todo',
+    generateMore: 'Generar más',
+    speaking: 'Hablando...',
     // Region descriptions
     arabicDesc: 'Nombres árabes tradicionales',
     islamicDesc: 'Nombres islámicos y musulmanes',
@@ -692,6 +721,15 @@ const translations = {
     culturalAuthenticityDesc: 'Аутентичные имена из реальных традиций',
     easyToCopy: 'Легко копировать и делиться',
     easyToCopyDesc: 'Простая функция копирования и обмена',
+    // Additional keys for ResultsPage
+    creatingNames: 'Создание ваших идеальных имен',
+    craftingNames: 'Создание значимых имен с культурной глубиной...',
+    weavingMagic: 'Плетение культурной магии в каждое имя',
+    yourBeautifulNames: 'Ваши красивые имена',
+    copied: 'Скопировано!',
+    copyAll: 'Копировать все',
+    generateMore: 'Генерировать больше',
+    speaking: 'Говорит...',
     // Region descriptions
     arabicDesc: 'Традиционные арабские имена',
     islamicDesc: 'Исламские и мусульманские имена',
@@ -843,6 +881,15 @@ const translations = {
     culturalAuthenticityDesc: 'Authentische Namen aus echten Traditionen',
     easyToCopy: 'Einfach zu kopieren und teilen',
     easyToCopyDesc: 'Einfache Kopier- und Teilen-Funktionalität',
+    // Additional keys for ResultsPage
+    creatingNames: 'Erstellen Ihrer perfekten Namen',
+    craftingNames: 'Erstellen bedeutungsvoller Namen mit kultureller Tiefe...',
+    weavingMagic: 'Weben kultureller Magie in jeden Namen',
+    yourBeautifulNames: 'Ihre schönen Namen',
+    copied: 'Kopiert!',
+    copyAll: 'Alle kopieren',
+    generateMore: 'Mehr generieren',
+    speaking: 'Spricht...',
     // Additional keys for NameDisplay
     creatingNames: 'Ihre perfekten Namen erstellen',
     craftingNames: 'Bedeutungsvolle Namen mit kultureller Tiefe erstellen...',
@@ -1003,6 +1050,15 @@ const translations = {
     culturalAuthenticityDesc: '真の伝統からの本物の名前',
     easyToCopy: 'コピーと共有が簡単',
     easyToCopyDesc: 'シンプルなコピーと共有機能',
+    // Additional keys for ResultsPage
+    creatingNames: 'あなたの完璧な名前を作成中',
+    craftingNames: '文化的な深みを持つ意味のある名前を作成中...',
+    weavingMagic: '各名前に文化的な魔法を織り込む',
+    yourBeautifulNames: 'あなたの美しい名前',
+    copied: 'コピーしました！',
+    copyAll: 'すべてコピー',
+    generateMore: 'さらに生成',
+    speaking: '話し中...',
   },
   zh: {
     nameCraft: 'NameCraft', // Keep in English
@@ -1080,6 +1136,15 @@ const translations = {
     culturalAuthenticityDesc: '来自真实传统的真实名字',
     easyToCopy: '易于复制和分享',
     easyToCopyDesc: '简单的复制和分享功能',
+    // Additional keys for ResultsPage
+    creatingNames: '创建您的完美名字',
+    craftingNames: '创建具有文化深度的有意义名字...',
+    weavingMagic: '在每个名字中编织文化魔法',
+    yourBeautifulNames: '您美丽的名字',
+    copied: '已复制！',
+    copyAll: '复制全部',
+    generateMore: '生成更多',
+    speaking: '正在说话...',
   },
   hi: {
     nameCraft: 'NameCraft', // Keep in English
@@ -1157,6 +1222,15 @@ const translations = {
     culturalAuthenticityDesc: 'वास्तविक परंपराओं से प्रामाणिक नाम',
     easyToCopy: 'कॉपी और शेयर करने में आसान',
     easyToCopyDesc: 'सरल कॉपी और शेयर कार्यक्षमता',
+    // Additional keys for ResultsPage
+    creatingNames: 'आपके सही नाम बना रहे हैं',
+    craftingNames: 'सांस्कृतिक गहराई के साथ सार्थक नाम बना रहे हैं...',
+    weavingMagic: 'हर नाम में सांस्कृतिक जादू बुन रहे हैं',
+    yourBeautifulNames: 'आपके सुंदर नाम',
+    copied: 'कॉपी किया गया!',
+    copyAll: 'सभी कॉपी करें',
+    generateMore: 'और जनरेट करें',
+    speaking: 'बोल रहा है...',
   }
 };
 

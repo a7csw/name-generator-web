@@ -14,6 +14,8 @@ const SummaryPage = () => {
   } = useNameStore();
 
   const handleGenerateNames = () => {
+    // Set generating state and go to results
+    setIsGenerating(true);
     goToResults();
   };
 

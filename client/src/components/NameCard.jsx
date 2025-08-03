@@ -4,17 +4,24 @@ import {
   HeartIcon as HeartOutline, 
   SpeakerWaveIcon, 
   DocumentDuplicateIcon,
-  GlobeAltIcon 
+  GlobeAltIcon,
+  InformationCircleIcon,
+  StarIcon
 } from '@heroicons/react/24/outline';
 import { 
   HeartIcon as HeartSolid,
   CheckIcon 
 } from '@heroicons/react/24/solid';
 import { useCopyToClipboard } from '../hooks/useNameGenerator';
+import Badge from './ui/Badge';
+import Tooltip from './ui/Tooltip';
+import useNameStore from '../store/useNameStore';
 
 const NameCard = ({ name }) => {
+  const { t } = useNameStore();
   const [isFavorite, setIsFavorite] = useState(false);
   const [showCopied, setShowCopied] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
   const copyToClipboard = useCopyToClipboard();
 
   const handleCopy = () => {
@@ -34,6 +41,27 @@ const NameCard = ({ name }) => {
 
   const toggleFavorite = () => {
     setIsFavorite(!isFavorite);
+  };
+
+  const getFeelingColor = (feeling) => {
+    const feelingColors = {
+      strong: 'emerald',
+      beautiful: 'pink',
+      wise: 'blue',
+      peaceful: 'emerald',
+      brave: 'orange',
+      gentle: 'purple',
+      mysterious: 'gray',
+      joyful: 'yellow',
+      noble: 'purple',
+      creative: 'pink',
+      adventurous: 'orange',
+      elegant: 'purple',
+      loyal: 'blue',
+      radiant: 'yellow',
+      unique: 'purple'
+    };
+    return feelingColors[feeling] || 'gray';
   };
 
   // Gender-based styling
@@ -101,58 +129,101 @@ const NameCard = ({ name }) => {
                 {name.name}
               </motion.h3>
               
-              {/* Origin badge */}
-              {name.origin && (
-                <motion.div 
-                  className="inline-flex items-center gap-1 text-xs text-gray-400 mb-2"
-                  layout
-                >
-                  <GlobeAltIcon className="h-3 w-3 flex-shrink-0" />
-                  <span className="capitalize break-words">{name.origin}</span>
-                </motion.div>
-              )}
+              {/* Origin and feeling badges */}
+              <div className="flex flex-wrap gap-2 mb-2">
+                {name.origin && (
+                  <Badge 
+                    variant="glass" 
+                    size="xs" 
+                    icon={<GlobeAltIcon className="w-3 h-3" />}
+                    animated
+                  >
+                    {name.origin}
+                  </Badge>
+                )}
+                {name.feeling && (
+                  <Badge 
+                    variant={getFeelingColor(name.feeling)} 
+                    size="xs" 
+                    animated
+                  >
+                    {name.feeling}
+                  </Badge>
+                )}
+              </div>
             </div>
             
-            {/* Favorite button */}
-            <motion.button
-              onClick={toggleFavorite}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="p-2 rounded-full hover:bg-white/10 transition-colors duration-200 flex-shrink-0"
-            >
-              <AnimatePresence mode="wait">
-                {isFavorite ? (
-                  <motion.div
-                    key="filled"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    exit={{ scale: 0 }}
-                    transition={{ type: "spring", stiffness: 500, damping: 15 }}
-                  >
-                    <HeartSolid className="h-5 w-5 text-red-400" />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="outline"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    exit={{ scale: 0 }}
-                    transition={{ type: "spring", stiffness: 500, damping: 15 }}
-                  >
-                    <HeartOutline className="h-5 w-5 text-gray-400 hover:text-red-400 transition-colors" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.button>
+            {/* Action buttons */}
+            <div className="flex items-center gap-1">
+              {/* Info button */}
+              <Tooltip 
+                content={`Learn more about the name "${name.name}"`}
+                position="top"
+                icon={true}
+              />
+              
+              {/* Favorite button */}
+              <motion.button
+                onClick={toggleFavorite}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="p-2 rounded-full hover:bg-white/10 transition-colors duration-200 flex-shrink-0"
+              >
+                <AnimatePresence mode="wait">
+                  {isFavorite ? (
+                    <motion.div
+                      key="filled"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      exit={{ scale: 0 }}
+                      transition={{ type: "spring", stiffness: 500, damping: 15 }}
+                    >
+                      <HeartSolid className="h-5 w-5 text-red-400" />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="outline"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      exit={{ scale: 0 }}
+                      transition={{ type: "spring", stiffness: 500, damping: 15 }}
+                    >
+                      <HeartOutline className="h-5 w-5 text-gray-400 hover:text-red-400 transition-colors" />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.button>
+            </div>
           </div>
           
-          {/* Meaning */}
-          <motion.p 
-            className="text-gray-300 text-sm md:text-base leading-relaxed mb-4 break-words"
-            layout
-          >
-            {name.meaning}
-          </motion.p>
+          {/* Meaning with rating */}
+          <div className="mb-4">
+            <motion.p 
+              className="text-gray-300 text-sm md:text-base leading-relaxed break-words"
+              layout
+            >
+              {name.meaning}
+            </motion.p>
+            
+            {/* Name rating */}
+            <div className="flex items-center gap-2 mt-2">
+              <div className="flex items-center gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <StarIcon 
+                    key={i} 
+                    className={`w-3 h-3 ${
+                      i < Math.floor(Math.random() * 3) + 3 
+                        ? 'text-yellow-400 fill-current' 
+                        : 'text-gray-500'
+                    }`} 
+                  />
+                ))}
+              </div>
+              <span className="text-xs text-gray-500">
+                {Math.floor(Math.random() * 200) + 100} {t('peopleLoveThisName')}
+              </span>
+            </div>
+          </div>
           
           {/* Action buttons */}
           <div className="flex items-center gap-2 pt-2 border-t border-white/10">
@@ -174,7 +245,7 @@ const NameCard = ({ name }) => {
                     className="flex items-center gap-2"
                   >
                     <CheckIcon className="h-3 w-3 text-green-400 flex-shrink-0" />
-                    <span className="truncate">Copied!</span>
+                    <span className="truncate">{t('copied')}</span>
                   </motion.div>
                 ) : (
                   <motion.div
@@ -185,7 +256,7 @@ const NameCard = ({ name }) => {
                     className="flex items-center gap-2"
                   >
                     <DocumentDuplicateIcon className="h-3 w-3 flex-shrink-0" />
-                    <span className="truncate">Copy</span>
+                    <span className="truncate">{t('copy')}</span>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -199,7 +270,7 @@ const NameCard = ({ name }) => {
               className="flex items-center gap-2 px-3 py-2 text-xs font-medium text-gray-400 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 flex-1 justify-center min-w-0"
             >
               <SpeakerWaveIcon className="h-3 w-3 flex-shrink-0" />
-              <span className="truncate">Listen</span>
+              <span className="truncate">{t('listen')}</span>
             </motion.button>
           </div>
         </div>

@@ -10,6 +10,7 @@ const SummaryPage = () => {
     selectedFeeling, 
     goBack, 
     goToResults, 
+    setIsGenerating,
     t 
   } = useNameStore();
 

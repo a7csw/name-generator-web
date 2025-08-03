@@ -754,7 +754,7 @@ const ResultsPage = () => {
                              whileTap={{ scale: 0.9 }}
                              onClick={() => copyToClipboard(nameData.name)}
                              className="p-2 text-gray-400 hover:text-emerald-400 transition-all duration-200 rounded-xl hover:bg-emerald-400/10 hover:shadow-lg hover:shadow-emerald-400/20"
-                             title="Copy name"
+                             title={t('copyName')}
                            >
                              <ClipboardDocumentIcon className="h-5 w-5" />
                            </motion.button>

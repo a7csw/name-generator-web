@@ -97,7 +97,7 @@ const RegionSelection = () => {
     },
     {
       id: 'north_american',
-      nameKey: 'north_american',
+      nameKey: 'northAmerican',
       flag: '🇨🇦',
       gradient: 'from-red-500/10 to-white/10',
       bgGlow: 'group-hover:shadow-red-500/20',

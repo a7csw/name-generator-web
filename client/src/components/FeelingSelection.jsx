@@ -187,7 +187,7 @@ const FeelingSelection = () => {
 
   const handleFeelingSelect = (feeling) => {
     setFeeling(feeling.id);
-    goToGenerator();
+    goToSummary(feeling.id);
   };
 
   return (

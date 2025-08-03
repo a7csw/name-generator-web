@@ -1227,10 +1227,17 @@ const useNameStore = create(
         }, 400); // New feeling selection step
       },
 
-      goToGenerator: (feeling) => {
+      goToSummary: (feeling) => {
         set({ selectedFeeling: feeling, isTransitioning: true });
         setTimeout(() => {
-          set({ currentStep: 'generator', isTransitioning: false });
+          set({ currentStep: 'summary', isTransitioning: false });
+        }, 400);
+      },
+
+      goToResults: () => {
+        set({ isTransitioning: true });
+        setTimeout(() => {
+          set({ currentStep: 'results', isTransitioning: false });
         }, 400);
       },
 
@@ -1249,8 +1256,11 @@ const useNameStore = create(
             case 'feeling':
               set({ currentStep: 'region', isTransitioning: false });
               break;
-            case 'generator':
+            case 'summary':
               set({ currentStep: 'feeling', isTransitioning: false });
+              break;
+            case 'results':
+              set({ currentStep: 'summary', isTransitioning: false });
               break;
             default:
               set({ isTransitioning: false });

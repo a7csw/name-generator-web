@@ -4,7 +4,7 @@ import { SparklesIcon, HeartIcon, ChevronLeftIcon } from '@heroicons/react/24/ou
 import useNameStore from '../store/useNameStore';
 
 const FeelingSelection = () => {
-  const { selectedGender, selectedRegion, selectedFeeling, setFeeling, goToGenerator, goBack, t } = useNameStore();
+  const { selectedGender, selectedRegion, selectedFeeling, setFeeling, goToSummary, goBack, t } = useNameStore();
 
   const feelingOptions = [
     {

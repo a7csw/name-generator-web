@@ -22,6 +22,16 @@ const NameDisplay = () => {
   const copyToClipboard = useCopyToClipboard();
   const [copyAllSuccess, setCopyAllSuccess] = React.useState(false);
 
+  // Add debugging for generated names
+  React.useEffect(() => {
+    console.log('📱 NameDisplay: Current state:', {
+      generatedNames: generatedNames.length,
+      isGenerating,
+      currentStep,
+      names: generatedNames
+    });
+  }, [generatedNames, isGenerating, currentStep]);
+
   const showInitialState = currentStep === 'generator' && generatedNames.length === 0 && !isGenerating;
   const showLoadingState = isGenerating;
   const showResultsState = generatedNames.length > 0 && !isGenerating;

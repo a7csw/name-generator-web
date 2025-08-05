@@ -4,7 +4,6 @@ import { toast } from 'react-hot-toast';
 import useNameStore from '../store/useNameStore';
 import { getRandomNames } from '../data/mockNames';
 
-const EXTERNAL_API_URL = 'https://api.namegenerator.mohdrarprojects.com/generateGemini';
 
 // Configure axios for external API
 const externalApi = axios.create({
@@ -228,7 +227,7 @@ export const useGenders = () => {
 // Generate names mutation - Now uses external API
 export const useGenerateNames = () => {
   const queryClient = useQueryClient();
-  const { setGeneratedNames, setIsGenerating, setLastGenerated } = useNameStore();
+  const { setGeneratedNames, setIsGenerating, setLastGenerated, goToResults } = useNameStore();
 
   return useMutation({
     mutationFn: async ({ gender, culture, count, feeling }) => {
@@ -312,12 +311,20 @@ export const useGenerateNames = () => {
         duration: 3000,
         icon: '🎉',
       });
+      
+      // Navigate to results page
+      console.log('🎯 Navigating to results page...');
+      goToResults();
     },
     onError: (error) => {
       console.error('🎯 Mutation error:', error);
       setIsGenerating(false);
       toast.error('Failed to generate names. Please try again.');
       console.error('Name generation error:', error);
+      
+      // Still navigate to results page (will show fallback data)
+      console.log('🎯 Navigating to results page despite error...');
+      goToResults();
     },
   });
 };

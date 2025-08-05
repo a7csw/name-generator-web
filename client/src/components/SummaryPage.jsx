@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeftIcon, SparklesIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 import useNameStore from '../store/useNameStore.js';
+import { useGenerateNames } from '../hooks/useNameGenerator';
 
 const SummaryPage = () => {
   const { 
@@ -14,10 +15,26 @@ const SummaryPage = () => {
     t 
   } = useNameStore();
 
+  const generateNamesMutation = useGenerateNames();
+
   const handleGenerateNames = () => {
-    // Set generating state and go to results
+    console.log('🎯 SummaryPage: Generate button clicked!');
+    console.log('🎯 SummaryPage: Selected options:', {
+      gender: selectedGender,
+      region: selectedRegion,
+      feeling: selectedFeeling
+    });
+
+    // Set generating state
     setIsGenerating(true);
-    goToResults();
+    
+    // Make the API call to generate names
+    generateNamesMutation.mutate({
+      gender: selectedGender,
+      culture: selectedRegion, // Use selectedRegion as culture
+      count: 5, // Default to 5 names
+      feeling: selectedFeeling,
+    });
   };
 
   const selectionItems = [

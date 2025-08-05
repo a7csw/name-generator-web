@@ -30,28 +30,28 @@ const NameForm = () => {
   // Auto-populate based on wizard selections
   React.useEffect(() => {
     if (selectedGender && selectedRegion) {
-      // Map region to culture for API compatibility
+      // Map region to culture for API compatibility - use the actual region names
       const regionToCulture = {
-        'arabic': 'muslim',
-        'islamic': 'muslim',
-        'asian': 'hindu', 
-        'western': 'christian',
+        'arabic': 'arabic',
+        'islamic': 'islamic',
+        'asian': 'asian', 
+        'western': 'western',
         'jewish': 'jewish',
-        'african': 'muslim',
-        'global': 'christian',
-        'latin': 'christian',
-        'north_american': 'christian',
-        'european': 'christian',
-        'slavic': 'christian',
-        'scandinavian': 'christian',
-        'oceanic': 'christian',
-        'korean': 'hindu',
-        'japanese': 'hindu'
+        'african': 'african',
+        'global': 'global',
+        'latin': 'latin',
+        'northAmerican': 'northAmerican',
+        'european': 'european',
+        'slavic': 'slavic',
+        'scandinavian': 'scandinavian',
+        'oceanic': 'oceanic',
+        'korean': 'korean',
+        'japanese': 'japanese'
       };
       
       setFilters({
         gender: selectedGender,
-        culture: regionToCulture[selectedRegion] || 'christian',
+        culture: regionToCulture[selectedRegion] || 'global',
       });
     }
   }, [selectedGender, selectedRegion, setFilters]);
@@ -62,6 +62,13 @@ const NameForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!filters.gender || !filters.culture) return;
+    
+    console.log('🚀 Submitting name generation request with:', {
+      gender: filters.gender,
+      culture: filters.culture,
+      count: filters.count,
+      feeling: selectedFeeling,
+    });
     
     generateNamesMutation.mutate({
       gender: filters.gender,
@@ -77,12 +84,23 @@ const NameForm = () => {
   };
 
   const handleCultureChange = (culture) => {
-    // Update the region based on culture selection
+    // Update the region based on culture selection - use direct mapping
     const cultureToRegion = {
-      'muslim': 'arabic',
-      'hindu': 'asian',
-      'christian': 'western',
-      'jewish': 'jewish'
+      'arabic': 'arabic',
+      'islamic': 'islamic',
+      'asian': 'asian',
+      'western': 'western',
+      'jewish': 'jewish',
+      'african': 'african',
+      'global': 'global',
+      'latin': 'latin',
+      'northAmerican': 'northAmerican',
+      'european': 'european',
+      'slavic': 'slavic',
+      'scandinavian': 'scandinavian',
+      'oceanic': 'oceanic',
+      'korean': 'korean',
+      'japanese': 'japanese'
     };
     setRegion(cultureToRegion[culture?.id] || 'global');
     setFilters({ culture: culture?.id || '' });

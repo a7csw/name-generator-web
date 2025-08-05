@@ -61,7 +61,20 @@ const NameForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!filters.gender || !filters.culture) return;
+    console.log('📝 Form submitted!');
+    console.log('📝 Form validation:', {
+      hasGender: !!filters.gender,
+      hasCulture: !!filters.culture,
+      gender: filters.gender,
+      culture: filters.culture,
+      count: filters.count,
+      feeling: selectedFeeling,
+    });
+    
+    if (!filters.gender || !filters.culture) {
+      console.log('❌ Form validation failed - missing gender or culture');
+      return;
+    }
     
     console.log('🚀 Submitting name generation request with:', {
       gender: filters.gender,
@@ -70,12 +83,14 @@ const NameForm = () => {
       feeling: selectedFeeling,
     });
     
+    console.log('🚀 About to call generateNamesMutation.mutate...');
     generateNamesMutation.mutate({
       gender: filters.gender,
       culture: filters.culture,
       count: filters.count,
       feeling: selectedFeeling,
     });
+    console.log('🚀 generateNamesMutation.mutate called successfully');
   };
 
   const handleGenderChange = (gender) => {

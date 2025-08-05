@@ -11,6 +11,47 @@ const externalApi = axios.create({
   timeout: 30000, // 30 seconds timeout for external API
 });
 
+// Add request interceptor for debugging
+externalApi.interceptors.request.use(
+  (config) => {
+    console.log('🌐 Axios Request Interceptor:', {
+      url: config.url,
+      method: config.method,
+      headers: config.headers,
+      data: config.data,
+      timeout: config.timeout
+    });
+    return config;
+  },
+  (error) => {
+    console.error('❌ Axios Request Error:', error);
+    return Promise.reject(error);
+  }
+);
+
+// Add response interceptor for debugging
+externalApi.interceptors.response.use(
+  (response) => {
+    console.log('✅ Axios Response Interceptor:', {
+      status: response.status,
+      statusText: response.statusText,
+      headers: response.headers,
+      data: response.data
+    });
+    return response;
+  },
+  (error) => {
+    console.error('❌ Axios Response Error:', {
+      message: error.message,
+      status: error.response?.status,
+      statusText: error.response?.statusText,
+      data: error.response?.data,
+      config: error.config
+    });
+    return Promise.reject(error);
+  }
+);
+
 // Mapping functions to convert frontend selections to API format
 const mapGenderToAPI = (gender) => {
   const mapping = {
@@ -102,13 +143,43 @@ const testParsing = () => {
   return parsed;
 };
 
+// Test function to manually test API call
+const testApiCall = async () => {
+  console.log('🧪 Testing API call manually...');
+  
+  const testRequestBody = {
+    title: "generating human names",
+    role: "you are an expert",
+    nameGender: "female",
+    nameStyle: "traditional",
+    nameOrigin: "middle eastern",
+    nameTone: "soft&cute"
+  };
+  
+  try {
+    console.log('🧪 Making test API call with:', testRequestBody);
+    const response = await externalApi.post(EXTERNAL_API_URL, testRequestBody);
+    console.log('🧪 Test API call successful:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('🧪 Test API call failed:', error);
+    throw error;
+  }
+};
+
 // Run test on module load
 if (typeof window !== 'undefined') {
   // Only run in browser environment
   setTimeout(() => {
     console.log('Testing name parsing function...');
     testParsing();
+    
+    // Uncomment the line below to test API call on page load
+    // testApiCall();
   }, 1000);
+  
+  // Make testApiCall available globally for manual testing
+  window.testApiCall = testApiCall;
 }
 
 // Fetch available cultures
@@ -161,6 +232,7 @@ export const useGenerateNames = () => {
 
   return useMutation({
     mutationFn: async ({ gender, culture, count, feeling }) => {
+      console.log('🎯 useGenerateNames mutation called with:', { gender, culture, count, feeling });
       setIsGenerating(true);
       
       try {
@@ -174,13 +246,19 @@ export const useGenerateNames = () => {
           nameTone: mapFeelingToAPI(feeling)
         };
 
-        console.log('Making API request to:', EXTERNAL_API_URL);
-        console.log('Request body:', requestBody);
+        console.log('🎯 Making API request to:', EXTERNAL_API_URL);
+        console.log('🎯 Request body:', requestBody);
+        console.log('🎯 Mapped parameters:', {
+          gender: mapGenderToAPI(gender),
+          region: mapRegionToAPI(culture),
+          feeling: mapFeelingToAPI(feeling)
+        });
 
         // Make API call with timeout
+        console.log('🎯 About to make axios POST request...');
         const response = await externalApi.post(EXTERNAL_API_URL, requestBody);
         
-        console.log('API Response:', response.data);
+        console.log('🎯 API Response received:', response.data);
         
         if (response.data && response.data.names) {
           // Parse the names from the response
@@ -189,7 +267,7 @@ export const useGenerateNames = () => {
           // Limit to requested count
           const limitedNames = parsedNames.slice(0, count);
           
-          console.log('Parsed names:', limitedNames);
+          console.log('🎯 Parsed names:', limitedNames);
           
           if (limitedNames.length > 0) {
             return limitedNames;
@@ -201,8 +279,8 @@ export const useGenerateNames = () => {
         }
         
       } catch (error) {
-        console.error('API Error:', error);
-        console.log('Error details:', {
+        console.error('🎯 API Error in mutation:', error);
+        console.log('🎯 Error details:', {
           message: error.message,
           status: error.response?.status,
           statusText: error.response?.statusText,
@@ -210,16 +288,16 @@ export const useGenerateNames = () => {
         });
         
         // Fallback to mock data if API fails
-        console.log('Falling back to mock data due to API error');
+        console.log('🎯 Falling back to mock data due to API error');
         await new Promise(resolve => setTimeout(resolve, 1000)); // Add delay for fallback
         
         const fallbackNames = getRandomNames(gender, culture, count, feeling);
-        console.log('Using fallback names:', fallbackNames);
+        console.log('🎯 Using fallback names:', fallbackNames);
         return fallbackNames;
       }
     },
     onSuccess: (data) => {
-      console.log('Generated names:', data);
+      console.log('🎯 Mutation success - Generated names:', data);
       setGeneratedNames(data);
       setLastGenerated();
       setIsGenerating(false);
@@ -236,6 +314,7 @@ export const useGenerateNames = () => {
       });
     },
     onError: (error) => {
+      console.error('🎯 Mutation error:', error);
       setIsGenerating(false);
       toast.error('Failed to generate names. Please try again.');
       console.error('Name generation error:', error);

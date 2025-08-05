@@ -9,6 +9,8 @@ import useNameStore from '../store/useNameStore.js';
 import { useGenerateNames } from '../hooks/useNameGenerator';
 import axios from 'axios';
 
+const API_URL = 'https://api.namegenerator.mohdrarprojects.com/generateGemini';
+
 const SummaryPage = () => {
   const {
     selectedGender,
@@ -29,7 +31,7 @@ const SummaryPage = () => {
       setIsGenerating(true);
 
       const response = await axios.post(
-        '',
+        API_URL,
         {
           title: 'generating human names',
           role: 'you are an expert',

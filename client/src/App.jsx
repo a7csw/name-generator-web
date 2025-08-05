@@ -5,6 +5,7 @@ import GenderSelection from './components/GenderSelection.jsx';
 import RegionSelection from './components/RegionSelection.jsx';
 import FeelingSelection from './components/FeelingSelection.jsx';
 import SummaryPage from './components/SummaryPage.jsx';
+import NameDisplay from './components/NameDisplay.jsx';
 import ResultsPage from './components/ResultsPage.jsx';
 import useNameStore from './store/useNameStore.js';
 import './App.css';
@@ -24,6 +25,8 @@ function App() {
         return <FeelingSelection />;
       case 'summary':
         return <SummaryPage />;
+      case 'generator':
+        return <NameDisplay />;
       case 'results':
         return <ResultsPage />;
       default:
@@ -47,7 +50,5 @@ function App() {
     </div>
   );
 }
-
-
 
 export default App;
